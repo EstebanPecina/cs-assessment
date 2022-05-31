@@ -1,18 +1,21 @@
 //sumZero
-function sumZero([N], sum) {
-    x = 0;
-    y = N.length - 1;
-    while (x < y) {
-      if (N[x] + N[y] == sum)
-        return true;
-      else if (N[x] + N[y] < sum)
-        x++;
-      return false
-    }
-}
-  console.log(numbers([5, 2, 1, 9, 15], 6))
+const nums = [-1,1,2,3,5]
 
-// runtime 2.1 ms
+function twoSum(nums, target) {
+  let comp = new Map();
+  let len = nums.length;
+
+  for (let i = 0; i < len; i++) {
+    if (comp[nums[i]] >= 0) {
+      return [comp[nums[i]], i];
+    }
+    comp[target - nums[i]] = i;
+  }
+}
+
+console.log(twoSum(nums, 0))
+
+// O(n)
 
 //Unique Characters
 function uniqueCharacters(str)
@@ -25,7 +28,7 @@ function uniqueCharacters(str)
 }
 console.log(uniqueCharacters('moonday'))
 
-// runtime 1.2ms
+// O(n^2)
 
 //Panagram Sentence
 function isPangram(string){
@@ -41,7 +44,7 @@ function isPangram(string){
   }
   console.log(isPangram('The quick brown fox jumps over the lazy dog.'))
 
-  // runtime 4.3ms
+  // O(n)
 
 //Longest Word
 function find_longest_word(str)
@@ -60,4 +63,4 @@ function find_longest_word(str)
 }
 console.log(find_longest_word('Hello everyone'));
 
-// runtime 3.58 ms
+// O(n)
